@@ -31,8 +31,9 @@ class Bashoutter(core.Stack):
             self, "Bashoutter-Bucket",
             website_index_document="index.html",
             public_read_access=True,
-            auto_delete_objects=True,
-            removal_policy=core.RemovalPolicy.DESTROY
+            # auto_delete_objects=True,
+            removal_policy=core.RemovalPolicy.DESTROY,
+            block_public_access=s3.BlockPublicAccess.BLOCK_ACLS
         )
 
         common_params = {
