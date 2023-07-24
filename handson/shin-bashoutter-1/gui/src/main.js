@@ -10,7 +10,7 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    url: "https://api.bashoutter.com",
+    url: "https://api.ayase-lab.net",
   },
   mutations: {
     set_url (state, url) {
