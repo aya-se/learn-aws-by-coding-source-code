@@ -29,8 +29,9 @@ class StaticSiteStack(core.Stack):
         bucket = s3.Bucket(
             self, "SiteContentBucket",
             public_read_access=False,
-            auto_delete_objects=True,
-            removal_policy=core.RemovalPolicy.DESTROY
+            # auto_delete_objects=True,
+            removal_policy=core.RemovalPolicy.DESTROY,
+            block_public_access=s3.BlockPublicAccess.BLOCK_ACLS,
         )
 
         certificate = acm.Certificate.from_certificate_arn(

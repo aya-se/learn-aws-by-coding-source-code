@@ -23,8 +23,9 @@ class DbBucketStack(core.Stack):
         # S3 bucket to store image data
         bucket = s3.Bucket(
             self, "Bucket",
-            auto_delete_objects=False,
-            removal_policy=core.RemovalPolicy.DESTROY
+            # auto_delete_objects=False,
+            removal_policy=core.RemovalPolicy.DESTROY,
+            block_public_access=s3.BlockPublicAccess.BLOCK_ACLS,
         )
         bucket.add_cors_rule(
             allowed_methods=[
